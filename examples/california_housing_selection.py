@@ -33,9 +33,14 @@ if __name__ == '__main__':
     features = fs.fit(data=train_x, label=train_y)
 
     # OpenFE gives the ranking of the base features:
+    print("\n\nThe ranking of the base features is")
     print(features)
+    print("-----------------------------------------------------")
     # Select the top 6 features
-    new_features = features[:6]
+    new_features = features[:2]
     score = get_score(train_x[new_features], test_x[new_features], train_y, test_y)
     print("The MSE after feature selection is", score)
 
+
+    # before openfe, number of features
+    print("Number of features before OpenFE: ", train_x.shape[1])
